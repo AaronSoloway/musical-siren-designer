@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/musical-siren-designer/static/css/main.073c9b0a.css",
+    "main.js": "/musical-siren-designer/static/js/main.26b6545b.js",
+    "static/js/787.a32a3d76.chunk.js": "/musical-siren-designer/static/js/787.a32a3d76.chunk.js",
+    "static/media/logo.svg": "/musical-siren-designer/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/musical-siren-designer/index.html",
+    "main.073c9b0a.css.map": "/musical-siren-designer/static/css/main.073c9b0a.css.map",
+    "main.26b6545b.js.map": "/musical-siren-designer/static/js/main.26b6545b.js.map",
+    "787.a32a3d76.chunk.js.map": "/musical-siren-designer/static/js/787.a32a3d76.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.26b6545b.js"
+  ]
+}
