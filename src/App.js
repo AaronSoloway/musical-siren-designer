@@ -20,6 +20,9 @@ import fileDownload from 'js-file-download'
 
 // fonts
 import "./fonts/Overpass/Overpass-ExtraLight.ttf";
+import { getAutoHeightDuration } from '@mui/material/styles/createTransitions';
+import { getMenuItemUnstyledUtilityClass } from '@mui/base';
+import { getListItemSecondaryActionClassesUtilityClass } from '@mui/material';
 
 
 
@@ -241,7 +244,17 @@ function App() {
             onClick={() => {
                 var dxfData = MakerJs.exporter.toDXF(musicalSirenModel, {accuracy: 0.0001, units: MakerJs.unitType.Millimeter, usePOLYLINE: true});
 
-                fileDownload(dxfData, 'filename.dxf')
+                var today = new Date();
+                const time = today.toLocaleTimeString("en-GB"); //this makes it 24hr rather than AM/PM
+
+                var dd = String(today.getDate()).padStart(2, '0');
+                var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+                var yyyy = today.getFullYear();
+                
+                today = yyyy + '/' + mm + '/' + dd;
+
+                var dateTimeString = today + "-" + time;
+                fileDownload(dxfData, "MusicalSiren" + dateTimeString + ".dxf");
             }}
           >
             Download .DXF
@@ -252,7 +265,18 @@ function App() {
             onClick={() => {
                 var svgData = MakerJs.exporter.toSVG(musicalSirenModel, {accuracy: 0.0001, units: MakerJs.unitType.Millimeter});
 
-                fileDownload(svgData, 'filename.svg')
+                var today = new Date();
+                const time = today.toLocaleTimeString("en-GB"); //this makes it 24hr rather than AM/PM
+
+                var dd = String(today.getDate()).padStart(2, '0');
+                var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+                var yyyy = today.getFullYear();
+                
+                today = yyyy + '/' + mm + '/' + dd;
+
+                var dateTimeString = today + "-" + time;
+
+                fileDownload(svgData, "MusicalSiren" + dateTimeString + ".svg");
             }}
           >
             Download .SVG
