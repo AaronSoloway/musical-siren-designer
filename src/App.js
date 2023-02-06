@@ -32,10 +32,10 @@ function App() {
   // default parameters
   const [customScale, setCustomScale] = React.useState("1, 2, 3, 4, 5, 6, 7, 8, 9, 10");
   const [toneHoleShape, setToneHoleShape] = React.useState("oval");
-  const [toneHoleLength, setToneHoleLength] = React.useState(3);
-  const [toneHoleWidth, setToneHoleWidth] = React.useState(3);
-  const [interRingRadius, setInterRingRadius] = React.useState(3);
-  const [edgeRadius, setEdgeRadius] = React.useState(3);
+  const [toneHoleLength, setToneHoleLength] = React.useState(6);
+  const [toneHoleWidth, setToneHoleWidth] = React.useState(6);
+  const [interRingRadius, setInterRingRadius] = React.useState(2);
+  const [edgeRadius, setEdgeRadius] = React.useState(6);
 
   /*
   // attempts to use url querying to load parameters so I can spawn exact discs from the analysis visuals
