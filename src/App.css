@@ -36,3 +36,45 @@
     transform: rotate(360deg);
   }
 }
+
+.title {
+  font-family: Overpass-Thin;
+  font-size: 48px;
+  /* margin: auto; */
+  text-align: center;
+  padding-top: 30px;
+  /* padding-bottom: 10px; */
+}
+
+.blueprint {
+  height: 70vh;
+  aspect-ratio: 1;
+  margin: auto;  
+}
+
+.controls {
+  /* align-items: center; */
+  width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+  /* margin: auto; */
+  padding-top: 60px;
+  padding-bottom: 40px;
+
+}
+ 
+.uiText {
+  font-family: Overpass-Regular;
+  font-size: 24;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 7px;
+}
+
+.controlBox {  
+  position: 50%;
+}
+
+.sliders {
+  padding-top: 200px;
+}

@@ -1,3 +1,89 @@
+@font-face {
+  font-family: Overpass-Black;
+  src: url(./fonts/Overpass/Overpass-Black.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: Overpass-BlackItalic;
+  src: url(./fonts/Overpass/Overpass-BlackItalic.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: Overpass-Bold;
+  src: url(./fonts/Overpass/Overpass-Bold.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: Overpass-BoldItalic;
+  src: url(./fonts/Overpass/Overpass-BoldItalic.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: Overpass-ExtraBold;
+  src: url(./fonts/Overpass/Overpass-ExtraBold.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: Overpass-ExtraBoldItalic;
+  src: url(./fonts/Overpass/Overpass-ExtraBoldItalic.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: Overpass-ExtraLight;
+  src: url(./fonts/Overpass/Overpass-ExtraLight.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: Overpass-ExtraLightItalic;
+  src: url(./fonts/Overpass/Overpass-ExtraLightItalic.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: Overpass-Italic;
+  src: url(./fonts/Overpass/Overpass-Italic.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: Overpass-Light;
+  src: url(./fonts/Overpass/Overpass-Light.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: Overpass-Medium;
+  src: url(./fonts/Overpass/Overpass-Medium.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: Overpass-MediumItalic;
+  src: url(./fonts/Overpass/Overpass-MediumItalic.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: Overpass-Regular;
+  src: url(./fonts/Overpass/Overpass-Regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: Overpass-SemiBold;
+  src: url(./fonts/Overpass/Overpass-SemiBold.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: Overpass-SemiBoldItalic;
+  src: url(./fonts/Overpass/Overpass-SemiBoldItalic.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: Overpass-Thin;
+  src: url(./fonts/Overpass/Overpass-Thin.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: Overpass-ThinItalic;
+  src: url(./fonts/Overpass/Overpass-ThinItalic.ttf) format("truetype");
+}
+
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -11,3 +97,5 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
