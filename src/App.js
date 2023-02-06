@@ -32,7 +32,7 @@ function App() {
   // default parameters
   const [customScale, setCustomScale] = React.useState("1, 2, 3, 4, 5, 6, 7, 8, 9, 10");
   const [toneHoleShape, setToneHoleShape] = React.useState("oval");
-  const [toneHoleLength, setToneHoleLength] = React.useState(4);
+  const [toneHoleLength, setToneHoleLength] = React.useState(3);
   const [toneHoleWidth, setToneHoleWidth] = React.useState(3);
   const [interRingRadius, setInterRingRadius] = React.useState(3);
   const [edgeRadius, setEdgeRadius] = React.useState(3);
