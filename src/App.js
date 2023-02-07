@@ -180,7 +180,7 @@ function App() {
             // inputProps={customScale} 
             // label="scale"
             variant="outlined" 
-            helperText="inside ring (left) to outside ring (right), use whole numbers" 
+            helperText="inside ring (left) to outside ring (right), decimals are rounded to nearest whole number" 
           />
           {/* <div className='uiText'>Tone Hole Length</div> */}
           <br></br>
