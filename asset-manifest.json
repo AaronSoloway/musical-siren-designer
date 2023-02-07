@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/musical-siren-designer/static/css/main.510888d9.css",
-    "main.js": "/musical-siren-designer/static/js/main.299b8771.js",
+    "main.js": "/musical-siren-designer/static/js/main.c18048ab.js",
     "static/js/787.a32a3d76.chunk.js": "/musical-siren-designer/static/js/787.a32a3d76.chunk.js",
     "static/media/Overpass-ExtraLight.ttf": "/musical-siren-designer/static/media/Overpass-ExtraLight.9b9adf0e7803446d5d11.ttf",
     "static/media/Overpass-Light.ttf": "/musical-siren-designer/static/media/Overpass-Light.fbc55ea2c466a63ffc6f.ttf",
@@ -23,11 +23,11 @@
     "static/media/logo.svg": "/musical-siren-designer/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/musical-siren-designer/index.html",
     "main.510888d9.css.map": "/musical-siren-designer/static/css/main.510888d9.css.map",
-    "main.299b8771.js.map": "/musical-siren-designer/static/js/main.299b8771.js.map",
+    "main.c18048ab.js.map": "/musical-siren-designer/static/js/main.c18048ab.js.map",
     "787.a32a3d76.chunk.js.map": "/musical-siren-designer/static/js/787.a32a3d76.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.510888d9.css",
-    "static/js/main.299b8771.js"
+    "static/js/main.c18048ab.js"
   ]
 }
