@@ -29,14 +29,21 @@ import { getListItemSecondaryActionClassesUtilityClass } from '@mui/material';
 
 
 function App() {
-  // default parameters
+  // default disc parameters
   const [customScale, setCustomScale] = React.useState("1, 2, 3, 4, 5, 6, 7, 8, 9, 10");
   const [toneHoleShape, setToneHoleShape] = React.useState("oval");
   const [toneHoleLength, setToneHoleLength] = React.useState(6);
   const [toneHoleWidth, setToneHoleWidth] = React.useState(6);
   const [interRingRadius, setInterRingRadius] = React.useState(2);
-  const [insideMountRadius, setInsideMountRadius] = React.useState(50.0);
+  const [insideRingRadius, setInsideMountRadius] = React.useState(50.0);
   const [edgeRadius, setEdgeRadius] = React.useState(6);
+
+  // pitch parameters
+  const [ordinalTargetPitchFrequency, setOrdinalTargetPitchFrequency] = React.useState(261.626); // middle C
+
+  // motor parameters
+  const [motorTargetRpm, setMotorTargetRpm] = React.useState(262); // this will be a dependent value on ordinal [spatial] frequency and ordinal target frequency
+
 
   /*
   // attempts to use url querying to load parameters so I can spawn exact discs from the analysis visuals
@@ -93,7 +100,7 @@ function App() {
   }
 */
   // create musical siren model
-  let musicalSirenModel = new MusicalSiren(customScale, toneHoleShape, toneHoleLength, toneHoleWidth, interRingRadius, insideMountRadius, edgeRadius);
+  let musicalSirenModel = new MusicalSiren(customScale, toneHoleShape, toneHoleLength, toneHoleWidth, interRingRadius, insideRingRadius, edgeRadius);
  
   // https://maker.js.org/docs/exporting/
   const filename = "output.dxf";
@@ -106,6 +113,10 @@ function App() {
   const handleCustomScaleChange = (e) => {
     // console.log(e);
     setCustomScale(e.target.value);
+
+    // update target motor RPM since it can depend on this if ordinal changes
+    var resultantRpm = ordinalTargetPitchFrequency / Math.round(Number(e.target.value.split(',')[0]));
+    setMotorTargetRpm(Math.round(resultantRpm));
   }
 
   const handleToneHoleLengthSliderMoved = (event, newValue) => {
@@ -120,8 +131,15 @@ function App() {
     setInterRingRadius(newValue);
   }
 
-  const handleInsideMountRadiusSliderMoved = (event, newValue) => {
+  const handleInsideRingRadiusSliderMoved = (event, newValue) => {
     setInsideMountRadius(newValue);
+  }
+
+  const handleOrdinalTargetFrequencySliderMoved = (event, targetPitchFreq) => {
+    setOrdinalTargetPitchFrequency(targetPitchFreq);
+
+    var resultantRpm = targetPitchFreq / Math.round(Number(customScale[0]));
+    setMotorTargetRpm(Math.round(resultantRpm)); // this is still too much precision but at least makes the connection between freq and rpm clear when ordinal = 1 and rpm should exactly match desired pitch
   }
 
 
@@ -248,14 +266,34 @@ function App() {
           <br></br>
           <br></br>
           <Slider className='sliders'
-            onChange={handleInsideMountRadiusSliderMoved}
-            value={insideMountRadius}
+            onChange={handleInsideRingRadiusSliderMoved}
+            value={insideRingRadius}
             valueLabelDisplay="on"
-            valueLabelFormat={value => <div>Mount Radius: {value} mm</div>}
+            valueLabelFormat={value => <div>Ring 1 Radius: {value} mm</div>}
             min={1}
             max={200}
             step={0.1}
           />
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <Slider className='sliders'
+            onChange={handleOrdinalTargetFrequencySliderMoved}
+            value={ordinalTargetPitchFrequency}
+            valueLabelDisplay="on"
+            valueLabelFormat={value => <div>Ring 1 Target Pitch When Spun: {value} Hz</div>}
+            min={1}
+            max={1000}
+            step={0.001}
+          />
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          To achieve this pitch, you will need a ~{motorTargetRpm} RPM Motor
+          <br></br>
+          <br></br>
           <br></br>
           <br></br>
           <Button
