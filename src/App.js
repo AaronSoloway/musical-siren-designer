@@ -35,6 +35,7 @@ function App() {
   const [toneHoleLength, setToneHoleLength] = React.useState(6);
   const [toneHoleWidth, setToneHoleWidth] = React.useState(6);
   const [interRingRadius, setInterRingRadius] = React.useState(2);
+  const [insideMountRadius, setInsideMountRadius] = React.useState(50.0);
   const [edgeRadius, setEdgeRadius] = React.useState(6);
 
   /*
@@ -92,7 +93,7 @@ function App() {
   }
 */
   // create musical siren model
-  let musicalSirenModel = new MusicalSiren(customScale, toneHoleShape, toneHoleLength, toneHoleWidth, interRingRadius, edgeRadius);
+  let musicalSirenModel = new MusicalSiren(customScale, toneHoleShape, toneHoleLength, toneHoleWidth, interRingRadius, insideMountRadius, edgeRadius);
  
   // https://maker.js.org/docs/exporting/
   const filename = "output.dxf";
@@ -115,9 +116,14 @@ function App() {
     setToneHoleWidth(newValue);
   }
 
-  const handleInterRingDistanceliderMoved = (event, newValue) => {
+  const handleInterRingDistanceSliderMoved = (event, newValue) => {
     setInterRingRadius(newValue);
   }
+
+  const handleInsideMountRadiusSliderMoved = (event, newValue) => {
+    setInsideMountRadius(newValue);
+  }
+
 
   // override default to make design load with the siren fit to the blueprint
   const initialOptions = {
@@ -216,7 +222,7 @@ function App() {
           <br></br>
           <br></br>
           <Slider className='sliders'
-            onChange={handleInterRingDistanceliderMoved}
+            onChange={handleInterRingDistanceSliderMoved}
             value={interRingRadius}
             valueLabelDisplay="on"
             valueLabelFormat={value => <div>Inter-Ring Distance: {value} mm</div>}
@@ -237,6 +243,19 @@ function App() {
             <MenuItem value={"triangle"}>Triangle</MenuItem>
             <MenuItem value={"diamond"}>Diamond</MenuItem>
           </Select> 
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <Slider className='sliders'
+            onChange={handleInsideMountRadiusSliderMoved}
+            value={insideMountRadius}
+            valueLabelDisplay="on"
+            valueLabelFormat={value => <div>Mount Radius: {value} mm</div>}
+            min={1}
+            max={200}
+            step={0.1}
+          />
           <br></br>
           <br></br>
           <Button
