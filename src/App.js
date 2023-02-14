@@ -183,6 +183,8 @@ function App() {
       <div className="title">
         <h2>Musical Siren Designer</h2>
       </div>
+      If you're asking what is a "musical siren", check out <a href="https://barthopkin.com/instrumentarium/siren/" target="_blank">Bart Hopkin's</a> video of him playing the musical siren we made together.<br></br><br></br>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/VPoKYNbyvoY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
       <div className="blueprint">
         <Blueprint className='blueprint' model={musicalSirenModel} options={initialOptions}>
         </Blueprint>
