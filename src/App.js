@@ -288,6 +288,11 @@ function App() {
           <br></br>
           <br></br>
           <br></br>
+          <Divider className="dividerText" textAlign="center">MOTOR</Divider>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
           <Slider className='sliders'
             onChange={handleOrdinalTargetFrequencySliderMoved}
             value={ordinalTargetPitchFrequency}
@@ -298,12 +303,7 @@ function App() {
             step={0.001}
           />
           <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <Divider className="dividerText" textAlign="center">MOTOR</Divider>
-          <br></br>
-          <br></br>
+          <br></br>          
           To achieve this pitch, you will need a ~{motorTargetRpm} RPM Motor
           <br></br>
           <br></br>
