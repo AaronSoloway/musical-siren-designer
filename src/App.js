@@ -14,6 +14,8 @@ import MenuItem from '@mui/material/MenuItem';
 import TextField from '@mui/material/TextField';
 import Slider from '@mui/material/Slider';
 import Button from '@mui/material/Button';
+import Divider from '@mui/material/Divider';
+import Chip from '@mui/material/Chip';
 import Checkbox from '@mui/material/Checkbox';
 import MakerJs from 'makerjs';
 import fileDownload from 'js-file-download'
@@ -194,6 +196,7 @@ function App() {
           // noValidate
           // autoComplete="off"
         >
+          <Divider className="dividerText" textAlign="center">SCALE</Divider>
           <div className='uiText'>Tone Holes per Ring</div>
           <TextField 
             // id="outlined-basic" 
@@ -208,6 +211,10 @@ function App() {
           />
           {/* <div className='uiText'>Tone Hole Length</div> */}
           <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <Divider className="dividerText" textAlign="center">TONE HOLE</Divider>
           <br></br>
           <br></br>
           <br></br>
@@ -234,20 +241,6 @@ function App() {
             max={25}
             step={0.1}
           />
-          {/* <div className='uiText'>Inter-Ring Distance</div> */}
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <Slider className='sliders'
-            onChange={handleInterRingDistanceSliderMoved}
-            value={interRingRadius}
-            valueLabelDisplay="on"
-            valueLabelFormat={value => <div>Inter-Ring Distance: {value} mm</div>}
-            min={1}
-            max={25}
-            step={0.1}
-          />
           <div className='uiText'>Tone Hole Shape</div>
           <Select
             // labelId="demo-simple-select-label"
@@ -261,6 +254,23 @@ function App() {
             <MenuItem value={"triangle"}>Triangle</MenuItem>
             <MenuItem value={"diamond"}>Diamond</MenuItem>
           </Select> 
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <Divider className="dividerText" textAlign="center">DISC LAYOUT</Divider>
+          <br></br>
+          <br></br>
+          <br></br>
+          <Slider className='sliders'
+            onChange={handleInterRingDistanceSliderMoved}
+            value={interRingRadius}
+            valueLabelDisplay="on"
+            valueLabelFormat={value => <div>Inter-Ring Distance: {value} mm</div>}
+            min={1}
+            max={25}
+            step={0.1}
+          />
           <br></br>
           <br></br>
           <br></br>
@@ -289,6 +299,9 @@ function App() {
           />
           <br></br>
           <br></br>
+          <br></br>
+          <br></br>
+          <Divider className="dividerText" textAlign="center">MOTOR</Divider>
           <br></br>
           <br></br>
           To achieve this pitch, you will need a ~{motorTargetRpm} RPM Motor
