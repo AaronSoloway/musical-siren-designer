@@ -20,6 +20,7 @@ import Checkbox from '@mui/material/Checkbox';
 import MakerJs from 'makerjs';
 import fileDownload from 'js-file-download'
 import ReactGA from 'react-ga';
+import useAnalyticsEventTracker from './useAnalyticsEventTracker';
 
 // fonts
 import "./fonts/Overpass/Overpass-ExtraLight.ttf";
@@ -28,21 +29,8 @@ import { getMenuItemUnstyledUtilityClass } from '@mui/base';
 import { getListItemSecondaryActionClassesUtilityClass } from '@mui/material';
 
 
-const useAnalyticsEventTracker = (category="Blog category") => {
-  const eventTracker = (action = "test action", label = "test label") => {
-    ReactGA.event({category, action, label});
-  }
-  return eventTracker;
-}
-
-
-// import useAnalyticsEventTracker from './useAnalyticsEventTracker';
-
-
 const TRACKING_ID = "G-W6Z39MBW0N";
 ReactGA.initialize(TRACKING_ID);
-
-
 
 function App() {
   // default disc parameters
