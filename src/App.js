@@ -19,6 +19,7 @@ import Chip from '@mui/material/Chip';
 import Checkbox from '@mui/material/Checkbox';
 import MakerJs from 'makerjs';
 import fileDownload from 'js-file-download'
+import ReactGA from 'react-ga';
 
 // fonts
 import "./fonts/Overpass/Overpass-ExtraLight.ttf";
@@ -27,6 +28,19 @@ import { getMenuItemUnstyledUtilityClass } from '@mui/base';
 import { getListItemSecondaryActionClassesUtilityClass } from '@mui/material';
 
 
+const useAnalyticsEventTracker = (category="Blog category") => {
+  const eventTracker = (action = "test action", label = "test label") => {
+    ReactGA.event({category, action, label});
+  }
+  return eventTracker;
+}
+
+
+// import useAnalyticsEventTracker from './useAnalyticsEventTracker';
+
+
+const TRACKING_ID = "G-W6Z39MBW0N";
+ReactGA.initialize(TRACKING_ID);
 
 
 
@@ -46,7 +60,7 @@ function App() {
   // motor parameters
   const [motorTargetRpm, setMotorTargetRpm] = React.useState(262); // this will be a dependent value on ordinal [spatial] frequency and ordinal target frequency
 
-
+  const gaEventTracker = useAnalyticsEventTracker('Musical Siren Designer');
   /*
   // attempts to use url querying to load parameters so I can spawn exact discs from the analysis visuals
 
@@ -110,6 +124,8 @@ function App() {
 
   const handleToneHoleShapeMenuChange = (event, newValue) => {
     setToneHoleShape(newValue.props.value);
+    
+    gaEventTracker("tone hole shape: " + newValue.props.value);
   } 
   
   const handleCustomScaleChange = (e) => {
@@ -119,22 +135,33 @@ function App() {
     // update target motor RPM since it can depend on this if ordinal changes
     var resultantRpm = ordinalTargetPitchFrequency / Math.round(Number(e.target.value.split(',')[0]));
     setMotorTargetRpm(Math.round(resultantRpm));
+
+    gaEventTracker("custom scale: " + e.target.value);
+    gaEventTracker("target motor rpm: " + Math.round(resultantRpm));
   }
 
   const handleToneHoleLengthSliderMoved = (event, newValue) => {
     setToneHoleLength(newValue);
+
+    gaEventTracker("tone hole length: " + newValue);
   }
 
   const handleToneHoleWidthSliderMoved = (event, newValue) => {
     setToneHoleWidth(newValue);
+
+    gaEventTracker("tone hole width: " + newValue);
   }
 
   const handleInterRingDistanceSliderMoved = (event, newValue) => {
     setInterRingRadius(newValue);
+
+    gaEventTracker("inter ring distance: " + newValue);
   }
 
   const handleInsideRingRadiusSliderMoved = (event, newValue) => {
     setInsideMountRadius(newValue);
+
+    gaEventTracker("inside ring radius: " + newValue);
   }
 
   const handleOrdinalTargetFrequencySliderMoved = (event, targetPitchFreq) => {
@@ -142,6 +169,9 @@ function App() {
 
     var resultantRpm = targetPitchFreq / Math.round(Number(customScale[0]));
     setMotorTargetRpm(Math.round(resultantRpm)); // this is still too much precision but at least makes the connection between freq and rpm clear when ordinal = 1 and rpm should exactly match desired pitch
+    
+    gaEventTracker("target pitch freq: " + targetPitchFreq);
+    gaEventTracker("target motor rpm: " + Math.round(resultantRpm));
   }
 
 
@@ -329,6 +359,8 @@ function App() {
 
                 var dateTimeString = today + "-" + time;
                 fileDownload(dxfData, "MusicalSiren" + dateTimeString + ".dxf");
+
+                gaEventTracker("dxf");
             }}
           >
             Download .DXF
@@ -351,6 +383,8 @@ function App() {
                 var dateTimeString = today + "-" + time;
 
                 fileDownload(svgData, "MusicalSiren" + dateTimeString + ".svg");
+
+                gaEventTracker("svg");
             }}
           >
             Download .SVG
